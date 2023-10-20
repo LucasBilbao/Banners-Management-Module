@@ -1,0 +1,12 @@
+@use "../../globals.scss" as globals;
+
+section.banners {
+  margin-top: globals.pxToRem(25);
+
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: globals.pxToRem(25);
+  }
+}

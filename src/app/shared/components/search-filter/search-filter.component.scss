@@ -1,0 +1,30 @@
+@use "../../../../globals.scss" as globals;
+
+section.search {
+  width: 70%;
+  margin: 0 auto;
+  form {
+    width: 100%;
+    fieldset {
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+      mat-expansion-panel {
+        button {
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          margin-top: globals.pxToRem(15);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
+}

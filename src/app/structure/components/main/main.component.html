@@ -1,0 +1,24 @@
+<main class="center">
+  <ng-container>
+    <bmm-search-filter
+      placeholder="Search banner"
+      [searchValue]="search"
+      (search)="onSearch($event)"
+    ></bmm-search-filter>
+    <bmm-banners *ngIf="!(isLoading$ | async); else loader"></bmm-banners>
+    <ng-template #loader>
+      <bmm-loader></bmm-loader>
+    </ng-template>
+    <section class="pagination">
+      <mat-paginator
+        [length]="length$ | async"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+        (page)="handlePage($event)"
+      >
+      </mat-paginator>
+    </section>
+  </ng-container>
+</main>

@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./globals.scss" as globals;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  font-size: #{globals.$PX_SIZE}px;
+}
+
+html::-webkit-scrollbar {
+  width: max(0.6vw, globals.pxToRem(8));
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(86, 90, 90, 0.205);
+  border-radius: globals.pxToRem(500) 0 0 globals.pxToRem(500);
+  cursor: pointer;
+  &:hover {
+    background: rgba(86, 90, 90, 0.473);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  li {
+    all: unset;
+  }
+}
+
+fieldset {
+  all: unset;
+  legend {
+    all: unset;
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+input {
+  all: unset;
+}
+
+app-root {
+  min-height: 100dvh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  bmm-main {
+    flex-grow: 1;
+  }
+
+  bmm-footer {
+    margin-top: auto;
+  }
+}
+
+.status {
+  &_active {
+    color: globals.$POSITIVE_GREEN;
+  }
+
+  &_inactive {
+    color: globals.$NEGATIVE_RED;
+  }
+}
+
+.center {
+  width: 80%;
+  max-width: 1320px;
+  margin: auto;
+  @media screen and (max-width: 1500px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 1320px) {
+    width: 96%;
+  }
+}

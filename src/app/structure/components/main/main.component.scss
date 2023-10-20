@@ -1,0 +1,26 @@
+@use "../../../../globals.scss" as globals;
+
+main.center {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: globals.pxToRem(50);
+
+  button {
+    width: 70%;
+    margin: 0 auto globals.pxToRem(20);
+    @media screen and (max-width: 1320px) {
+      width: 96%;
+    }
+  }
+  section {
+    &.pagination {
+      margin-top: auto;
+      padding-top: globals.pxToRem(25);
+    }
+
+    @media screen and (max-width: 1320px) {
+      width: 100%;
+    }
+  }
+}
