@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ banner.name }}</mat-card-title>
+    <mat-card-subtitle>
+      <p [ngClass]="banner.active ? 'status_active' : 'status_inactive'">
+        {{ (banner.active ? "active" : "inactive") | uppercase }}
+      </p>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="fileUrl + banner.fileId" />
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <table>
+      <tr>
+        <td>Zone:</td>
+        <td>{{ banner.zoneId }}</td>
+      </tr>
+      <tr>
+        <td>Start date:</td>
+        <td>{{ banner.startDate | date : "MMM dd, yyyy 'at' HH:mm" }}</td>
+      </tr>
+      <tr>
+        <td>End date:</td>
+        <td *ngIf="banner.endDate; else indefinite">
+          {{ banner.endDate | date : "MMM dd, yyyy 'at' HH:mm" }}
+        </td>
+        <ng-template #indefinite>
+          <td>Indefinite</td>
+        </ng-template>
+      </tr>
+    </table>
+    <mat-chip-set>
+      <mat-chip *ngFor="let label of banner.labels">
+        {{ label | punctuate : 40 : 37 }}
+      </mat-chip>
+    </mat-chip-set>
+  </mat-card-content>
+</mat-card>

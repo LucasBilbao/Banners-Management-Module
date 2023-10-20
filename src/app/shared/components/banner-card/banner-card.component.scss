@@ -1,0 +1,36 @@
+@use "../../../../globals.scss" as globals;
+
+:host {
+  height: 100%;
+  mat-card {
+    width: globals.pxToRem(300);
+    height: 100%;
+    cursor: pointer;
+    mat-card-header {
+      mat-card-subtitle {
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+    mat-divider {
+      margin: globals.pxToRem(10) globals.pxToRem(10);
+      padding: 0 globals.pxToRem(10);
+    }
+    img {
+      object-fit: cover;
+    }
+    mat-card-content {
+      table {
+        margin-bottom: globals.pxToRem(10);
+        tr {
+          td {
+            & + td {
+              padding-left: globals.pxToRem(15);
+            }
+          }
+        }
+      }
+    }
+  }
+}

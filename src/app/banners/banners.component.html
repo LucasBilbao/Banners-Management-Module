@@ -1,0 +1,7 @@
+<section class="banners">
+  <ul *ngIf="banners$ | async as banners">
+    <li *ngFor="let banner of banners">
+      <bmm-banner-card [banner]="banner"></bmm-banner-card>
+    </li>
+  </ul>
+</section>

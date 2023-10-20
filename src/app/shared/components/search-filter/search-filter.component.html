@@ -1,0 +1,33 @@
+<section class="search">
+  <form class="search-form" (submit)="onSubmit()">
+    <fieldset>
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ placeholder }}</mat-label>
+        <input matInput [(ngModel)]="searchValue" name="search" />
+        <button matSuffix mat-icon-button aria-label="Search">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Filters </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-chip-listbox aria-label="Fish selection">
+          <mat-chip-option
+            [selected]="sortDirection === 'asc'"
+            (selectionChange)="onSortSelection('asc')"
+            [selectable]="sortDirection !== 'asc'"
+            >Ascending</mat-chip-option
+          >
+          <mat-chip-option
+            [selected]="sortDirection === 'desc'"
+            (selectionChange)="onSortSelection('desc')"
+            [selectable]="sortDirection !== 'desc'"
+            >Descending</mat-chip-option
+          >
+        </mat-chip-listbox>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+      </mat-expansion-panel>
+    </fieldset>
+  </form>
+</section>
